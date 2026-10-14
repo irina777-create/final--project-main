@@ -1,0 +1,29 @@
+{
+  "name": "positivus-html-css-final-project-empty",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "styles": "gulp styles",
+    "sprite": "gulp sprite"
+  },
+  "packageManager": "pnpm@10.22.0",
+  "dependencies": {
+    "bootstrap": "5.3.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.4",
+    "esbuild": "^0.25.0",
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^2.0.3",
+    "postcss": "^8.5.6",
+    "sass": "^1.90.0",
+    "tailwindcss": "3.4.17"
+  }
+}

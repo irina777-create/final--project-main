@@ -1,0 +1,1299 @@
+@use "bootstrap-custom"
+@use "typography"
+
+@use "lib/variables" as v
+@use "lib/mixins" as m
+
+*
+  box-sizing: border-box
+
+html
+  scroll-behavior: smooth
+
+body
+  margin: 0
+  min-height: 100vh
+  font-family: v.$font-family
+  color: v.$text
+  background-color: v.$white
+img
+  display: block
+  max-width: 100%
+  height: auto
+
+a
+  color: inherit
+  text-decoration: none
+
+ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+button,
+input,
+textarea
+  font: inherit
+
+.container
+  width: 100%
+  max-width: v.$container
+  margin: 0 auto
+  padding: 0 16px
+
+  @include m.media(tablet)
+    padding: 0 24px
+
+// HEADER
+
+.header
+  padding: 30px 0
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding: 60px 0 35px
+
+  &__container
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 30px
+
+  &__logo
+    display: block
+    width: 145px
+    flex-shrink: 0
+
+    @include m.media(desktop)
+      width: 220px
+
+  &__burger
+    display: flex
+    width: 32px
+    padding: 0
+    border: 0
+    background: transparent
+    flex-direction: column
+    gap: 6px
+
+
+    span
+      display: block
+      width: 100%
+      height: 2px
+      background-color: v.$black
+
+    @include m.media(desktop)
+      display: none
+
+  &__navigation
+    display: flex
+    flex-direction: column
+    gap: 20px
+
+    @include m.media(desktop)
+      flex-direction: row
+      align-items: center
+      gap: 40px
+
+      &.collapse:not(.show)
+        display: flex
+  &__menu
+    display: flex
+    align-items: center
+    gap: 40px
+    margin: 0
+    padding: 0
+    list-style: none
+
+    a
+      color: v.$black
+      font-size: 20px
+      font-weight: 400
+      line-height: 1.4
+      white-space: nowrap
+      text-decoration: none
+      transition: color 0.3s
+
+      &:hover
+        color: v.$green
+
+  .button--outline
+    display: inline-flex
+    min-height: 68px
+    padding: 18px 34px
+    border: 1px solid v.$dark
+    border-radius: 14px
+    align-items: center
+    justify-content: center
+    color: v.$black
+    font-size: 20px
+    white-space: nowrap
+
+
+// HERO
+
+.hero
+  padding: 35px 0 70px
+  background-color: v.$white
+
+  &__container
+    display: grid
+    grid-template-columns: 1fr
+    gap: 30px
+
+    @include m.media(desktop)
+      grid-template-columns: minmax(0, 531px) minmax(0, 600px)
+      align-items: center
+      justify-content: space-between
+      gap: 60px
+
+  &__content
+    max-width: 531px
+    text-align: left
+
+  &__title
+    margin: 0 0 30px
+    color: v.$black
+    font-size: 43px
+    font-weight: 500
+    line-height: 1.15
+
+    @include m.media(desktop)
+      margin-bottom: 35px
+      font-size: 60px
+
+  &__description
+    margin: 0 0 30px
+    color: v.$black
+    font-size: 18px
+    line-height: 1.5
+
+    @include m.media(desktop)
+      margin-bottom: 35px
+      font-size: 20px
+
+  &__image
+    img
+      display: block
+      width: 100%
+      height: auto
+
+    &--mobile
+      display: block
+      margin: 0 0 25px
+
+      @include m.media(desktop)
+        display: none
+
+    &--desktop
+      display: none
+
+      @include m.media(desktop)
+        display: block
+        width: 100%
+        max-width: 600px
+
+  .button--dark
+    display: inline-flex
+    min-height: 68px
+    padding: 18px 35px
+    border: 1px solid v.$dark
+    border-radius: 14px
+    align-items: center
+    justify-content: center
+    background-color: v.$dark
+    color: v.$white
+    font-size: 20px
+    text-decoration: none
+// COMPANIES
+.companies
+  padding: 0 0 60px
+  overflow: hidden
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding-bottom: 140px
+
+  &__container
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    align-items: center
+    gap: 35px 45px
+
+    @include m.media(tablet)
+      grid-template-columns: repeat(3, 1fr)
+
+    @include m.media(desktop)
+      grid-template-columns: repeat(6, 1fr)
+      justify-content: space-between
+      gap: 40px
+
+  &__logo
+    display: block
+    width: 100%
+    max-width: 125px
+    max-height: 48px
+    margin: 0 auto
+    object-fit: contain
+    filter: grayscale(1)
+// SERVICES
+
+.services
+  padding: 0 0 100px
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding-bottom: 140px
+
+  &__grid
+    display: grid
+    grid-template-columns: 1fr
+    gap: 30px
+
+    @include m.media(desktop)
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+      gap: 40px
+
+
+// SECTION HEADING
+
+.section-heading
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 25px
+  margin-bottom: 40px
+  text-align: center
+
+  @include m.media(desktop)
+    flex-direction: row
+    align-items: center
+    gap: 40px
+    margin-bottom: 80px
+    text-align: left
+
+  &__title
+    margin: 0
+    padding: 4px 7px
+    border-radius: 7px
+    background-color: v.$green
+    color: v.$black
+    font-size: 36px
+    font-weight: 500
+    line-height: 1.2
+
+    @include m.media(desktop)
+      font-size: 40px
+
+  &__description
+    max-width: 580px
+    margin: 0
+    color: v.$black
+    font-size: 18px
+    line-height: 1.3
+
+// SERVICE CARDS
+.service-card
+  display: grid
+  grid-template-columns: minmax(0, 1fr)
+
+@include m.media(desktop)
+  grid-template-columns: minmax(0, 1fr) 210px
+  min-height: 310px
+  padding: 40px
+  border: 1px solid v.$dark
+  border-radius: 45px
+  box-shadow: 0 5px 0 v.$dark
+  align-items: center
+  gap: 25px
+
+  @include m.media(desktop)
+    grid-template-columns: minmax(0, 1fr) 210px
+    min-height: 310px
+    padding: 50px
+
+  &--grey
+    background-color: v.$grey
+
+  &--green
+    background-color: v.$green
+
+  &--dark
+    background-color: v.$dark
+
+  &__content
+    display: flex
+    height: 100%
+    flex-direction: column
+    align-items: flex-start
+    justify-content: space-between
+    gap: 35px
+
+  &__title
+    display: flex
+    margin: 0
+    flex-direction: column
+    align-items: flex-start
+    color: v.$black
+    font-size: 26px
+    font-weight: 500
+    line-height: 1.15
+
+    @include m.media(desktop)
+      font-size: 30px
+
+    span
+      display: inline-block
+      padding: 2px 7px
+      border-radius: 7px
+      background-color: v.$green
+
+  &--green &__title span
+    background-color: v.$white
+
+  &--dark &__title span
+    background-color: v.$white
+
+  &__link
+    display: inline-flex
+    align-items: center
+    gap: 15px
+    color: v.$black
+    font-size: 20px
+    text-decoration: none
+
+  &--dark &__link
+    color: v.$white
+
+  &__link-icon
+    display: flex
+    width: 41px
+    height: 41px
+    border-radius: 50%
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+
+    svg
+      display: block
+      width: 41px
+      height: 41px
+
+  &__image
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+      display: block
+      width: 100%
+      max-width: 210px
+      height: auto
+// PROPOSAL
+
+.proposal
+  padding: 0 0 100px
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding-bottom: 140px
+
+  &__box
+    position: relative
+    display: flex
+    min-height: 370px
+    padding: 50px
+    border-radius: 45px
+    align-items: center
+    overflow: visible
+    background-color: v.$grey
+
+    @include m.media(desktop)
+      min-height: 347px
+      padding: 60px
+
+  &__content
+    position: relative
+    z-index: 2
+    width: 100%
+
+    @include m.media(desktop)
+      max-width: 500px
+
+  &__title
+    margin: 0 0 25px
+    color: v.$black
+    font-size: 26px
+    font-weight: 500
+    line-height: 1.2
+
+    @include m.media(desktop)
+      font-size: 30px
+
+  &__description
+    max-width: 500px
+    margin: 0 0 25px
+    color: v.$black
+    font-size: 18px
+    line-height: 1.3
+
+  &__image
+    display: none
+
+    @include m.media(desktop)
+      position: absolute
+      top: 50%
+      right: 60px
+      display: block
+      width: 359px
+      transform: translateY(-50%)
+
+    img
+      display: block
+      width: 100%
+      height: auto
+
+  .button--dark
+    display: inline-flex
+    min-height: 68px
+    padding: 18px 35px
+    border: 1px solid v.$dark
+    border-radius: 14px
+    align-items: center
+    justify-content: center
+    background-color: v.$dark
+    color: v.$white
+    font-size: 20px
+    line-height: 1.4
+    text-decoration: none
+    transition: background-color 0.3s, color 0.3s
+
+    &:hover
+      background-color: v.$green
+      color: v.$black
+
+// CASE STUDIES
+
+.case-studies
+  padding: 0 0 100px
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding-bottom: 140px
+
+  &__list
+    display: grid
+    grid-template-columns: 1fr
+    gap: 20px
+
+    @include m.media(desktop)
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+      gap: 0
+      padding: 70px 60px
+      border-radius: 45px
+      background-color: v.$dark
+
+  &__item
+    padding: 42px
+    border-radius: 45px
+    background-color: v.$dark
+    color: v.$white
+
+    @include m.media(desktop)
+      padding: 0 64px
+      border-radius: 0
+
+      &:first-child
+        padding-left: 0
+
+      &:last-child
+        padding-right: 0
+
+      &:not(:last-child)
+        border-right: 1px solid v.$white
+
+  &__text
+    margin: 0 0 20px
+    color: v.$white
+    font-size: 18px
+    line-height: 1.3
+
+.case-studies__link
+  display: inline-flex
+  align-items: center
+  gap: 15px
+  color: v.$green
+  font-size: 20px
+  line-height: 1.4
+  text-decoration: none
+  transition: opacity 0.3s
+
+.case-studies__arrow
+  display: block
+  width: 41px
+  height: 41px
+  flex-shrink: 0
+  transition: transform 0.3s
+
+.case-studies__link:hover .case-studies__arrow
+  transform: translate(4px, -5px)
+.case-studies
+  display: block
+  width: 100%
+  color: inherit
+  font-size: inherit
+  line-height: normal
+  text-decoration: none
+  transition: none
+
+.case-studies > .container
+  width: 100%
+  max-width: 1280px
+  margin: 0 auto !important
+  padding-right: 20px
+  padding-left: 20px
+  box-sizing: border-box
+
+.case-studies::after
+  content: none
+
+  // WORKING PROCESS
+
+.process
+  padding: 0 0 100px
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding-bottom: 140px
+
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 20px
+
+    @include m.media(desktop)
+      gap: 30px
+
+  &__item
+    padding: 30px
+    border: 1px solid v.$dark
+    border-radius: 45px
+    background-color: v.$grey
+    box-shadow: 0 5px 0 v.$dark
+    transition: background-color 0.3s
+
+    @include m.media(desktop)
+      padding: 40px 60px
+
+    &--active
+      background-color: v.$green
+
+  &__button
+    display: flex
+    width: 100%
+    border: 0
+    align-items: center
+    justify-content: space-between
+    gap: 20px
+    background-color: transparent
+    color: v.$black
+    text-align: left
+    cursor: pointer
+
+  &__heading
+    display: flex
+    align-items: center
+    gap: 25px
+
+  &__number
+    color: v.$black
+    font-size: 30px
+    font-weight: 500
+    line-height: 1
+
+    @include m.media(desktop)
+      font-size: 60px
+
+  &__title
+    color: v.$black
+    font-size: 18px
+    font-weight: 500
+    line-height: 1.2
+
+    @include m.media(desktop)
+      font-size: 30px
+
+  &__toggle
+    position: relative
+    display: block
+    width: 30px
+    height: 30px
+    border: 1px solid v.$dark
+    border-radius: 50%
+    flex-shrink: 0
+    background-color: v.$grey
+
+    @include m.media(desktop)
+      width: 58px
+      height: 58px
+
+    &::before,
+    &::after
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 14px
+      height: 2px
+      content: ""
+      background-color: v.$black
+      transform: translate(-50%, -50%)
+
+      @include m.media(desktop)
+        width: 18px
+
+    &::after
+      transform: translate(-50%, -50%) rotate(90deg)
+
+  &__item--active &__toggle::after
+    display: none
+
+  &__content
+    margin-top: 30px
+    padding-top: 30px
+    border-top: 1px solid v.$black
+    color: v.$black
+    font-size: 18px
+    line-height: 1.3
+
+    p
+      margin: 0
+
+    &[hidden]
+      display: none
+// TEAM
+
+.team
+  padding: 0 0 100px
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding-bottom: 140px
+
+  &__grid
+    display: grid
+    grid-template-columns: 1fr
+    gap: 30px
+
+    @include m.media(tablet)
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+
+    @include m.media(desktop)
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+      gap: 40px
+
+
+// TEAM CARD
+
+.team-card
+  position: relative
+  min-height: 330px
+  padding: 35px
+  border: 1px solid v.$dark
+  border-radius: 45px
+  background-color: v.$white
+  box-shadow: 0 5px 0 v.$dark
+
+  &__header
+    position: relative
+    display: grid
+    grid-template-columns: 105px minmax(0, 1fr)
+    min-height: 105px
+    padding-right: 35px
+    align-items: end
+    gap: 20px
+
+  &__photo
+    display: block
+    width: 105px
+    height: 105px
+    object-fit: contain
+
+  &__person
+    padding-bottom: 5px
+
+  &__name
+    margin: 0
+    color: v.$black
+    font-size: 20px
+    font-weight: 500
+    line-height: 1.2
+
+  &__position
+    margin: 4px 0 0
+    color: v.$black
+    font-size: 18px
+    line-height: 1.25
+
+  &__social
+    position: absolute
+    top: 0
+    right: 0
+    display: block
+    width: 34px
+    height: 34px
+    border-radius: 50%
+
+    img
+      display: block
+      width: 34px
+      height: 34px
+
+  &__description
+    margin: 28px 0 0
+    padding-top: 28px
+    border-top: 1px solid v.$black
+    color: v.$black
+    font-size: 18px
+    line-height: 1.3
+.team
+  .button
+    display: flex
+    width: 100%
+    max-width: 269px
+    min-height: 68px
+    margin: 40px 0 0 auto
+    padding: 18px 35px
+    border: 1px solid v.$dark
+    border-radius: 14px
+    align-items: center
+    justify-content: center
+    background-color: v.$dark
+    color: v.$white
+    font-size: 20px
+    text-decoration: none
+// TESTIMONIALS
+
+
+.testimonials
+  padding: 50px 0 90px
+  background-color: v.$white
+
+  @include m.media(desktop)
+    padding: 70px 0 140px
+
+  &__slider
+    margin-top: 40px
+    padding: 30px
+    overflow: hidden
+    color: v.$white
+    background-color: v.$dark
+    border-radius: v.$radius
+
+    @include m.media(desktop)
+      margin-top: 80px
+      padding: 84px 60px 68px
+
+  &__viewport
+    width: 100%
+    overflow: hidden
+
+  &__track
+    display: flex
+    align-items: flex-start
+    transition: transform 0.4s ease
+
+  &__controls
+    display: flex
+    max-width: 565px
+    margin: 60px auto 0
+    align-items: center
+    justify-content: space-between
+    gap: 15px
+
+    @include m.media(desktop)
+      margin-top: 100px
+      gap: 30px
+
+  &__arrow
+    display: flex
+    width: 40px
+    height: 40px
+    padding: 8px
+    border: 0
+    align-items: center
+    justify-content: center
+    background: transparent
+    cursor: pointer
+
+    img
+      width: 24px
+      height: 24px
+
+  &__pagination
+    display: flex
+    align-items: center
+    gap: 18px
+
+  &__dot
+    width: 14px
+    height: 14px
+    padding: 0
+    border: 1px solid v.$white
+    background: transparent
+    transform: rotate(45deg)
+    cursor: pointer
+
+    &--active
+      border-color: v.$green
+      background: v.$green
+
+
+.testimonial-card
+  flex: 0 0 100%
+  min-width: 0
+
+  &__quote
+    position: relative
+    min-height: 0
+    margin: 0 0 48px
+    padding: 30px
+    overflow-wrap: break-word
+    color: v.$white
+    font-size: 16px
+    line-height: 1.55
+    border: 1px solid v.$green
+    border-radius: v.$radius
+
+    @include m.media(desktop)
+      min-height: 266px
+      padding: 48px 52px
+      font-size: 18px
+
+    &::before
+      position: absolute
+      bottom: -15px
+      left: 52px
+      width: 28px
+      height: 28px
+      content: ""
+      background-color: v.$dark
+      border-right: 1px solid v.$green
+      border-bottom: 1px solid v.$green
+      transform: rotate(45deg)
+
+  &__author
+    padding-left: 30px
+    font-size: 18px
+
+    @include m.media(desktop)
+      padding-left: 80px
+
+    strong
+      display: block
+      color: v.$green
+
+    span
+      display: block
+      color: v.$white
+
+
+// CONTACT
+
+.visually-hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  white-space: nowrap
+  border: 0
+
+.contact
+  padding: 70px 0 140px
+
+  &__box
+    position: relative
+    display: flex
+    margin-top: 80px
+    padding: 60px 100px
+    overflow: hidden
+    background-color: v.$grey
+    border-radius: v.$radius
+
+  &__form
+    display: flex
+    flex: 0 0 556px
+    flex-direction: column
+    gap: 25px
+    z-index: 2
+
+  &__options
+    display: flex
+    gap: 35px
+    padding: 0
+    margin: 0 0 15px
+    border: 0
+
+  &__radio
+    display: flex
+    align-items: center
+    gap: 14px
+    font-size: 18px
+    cursor: pointer
+
+    input
+      position: absolute
+      width: 1px
+      height: 1px
+      opacity: 0
+
+      &:checked + .contact__radio-mark::after
+        opacity: 1
+
+  &__radio-mark
+    position: relative
+    width: 28px
+    height: 28px
+    flex-shrink: 0
+    background-color: v.$white
+    border: 1px solid v.$text
+    border-radius: 50%
+
+    &::after
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 14px
+      height: 14px
+      background-color: v.$green
+      border-radius: 50%
+      opacity: 0
+      transform: translate(-50%, -50%)
+
+  &__field
+    display: flex
+    flex-direction: column
+    gap: 8px
+
+  &__label
+    font-size: 16px
+    line-height: 1.4
+
+  &__input,
+  &__textarea
+    width: 100%
+    padding: 18px 30px
+    color: v.$text
+    font-size: 18px
+    line-height: 1.4
+    background-color: v.$white
+    border: 1px solid v.$text
+    border-radius: v.$radius-small
+    outline: none
+
+    &::placeholder
+      color: #898989
+
+    &:focus
+      border-color: v.$green
+      box-shadow: 0 0 0 3px rgba(185, 255, 102, 0.3)
+
+  &__textarea
+    min-height: 190px
+    resize: vertical
+
+  &__submit
+    width: 100%
+    margin-top: 15px
+    padding: 20px 30px
+    color: v.$white
+    font-size: 20px
+    background-color: v.$dark
+    border: 0
+    border-radius: v.$radius-small
+    cursor: pointer
+    transition: background-color 0.3s, color 0.3s
+
+    &:hover
+      color: v.$text
+      background-color: v.$green
+
+  &__image
+    position: absolute
+    top: 50%
+    right: -325px
+    width: 690px
+    transform: translateY(-50%)
+
+    img
+      display: block
+      width: 100%
+      height: auto
+@media (max-width: 767px)
+  .contact
+    padding: 50px 0 90px
+
+    &__box
+      margin-top: 40px
+      padding: 40px 30px
+      border-radius: 30px
+
+    &__form
+      flex: 1 1 100%
+      width: 100%
+
+    &__options
+      justify-content: space-between
+      gap: 15px
+
+    &__radio
+      gap: 8px
+      font-size: 16px
+
+    &__radio-mark
+      width: 24px
+      height: 24px
+
+      &::after
+        width: 12px
+        height: 12px
+
+    &__input,
+    &__textarea
+      padding: 16px 20px
+      font-size: 16px
+
+    &__textarea
+      min-height: 130px
+
+    &__submit
+      font-size: 18px
+
+    &__image
+      display: none
+// FOOTER
+
+.footer
+  color: v.$white
+
+  &__container
+    padding: 55px 60px 50px
+    background-color: v.$dark
+    border-radius: v.$radius v.$radius 0 0
+
+  &__top
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 40px
+    margin-bottom: 65px
+
+  &__logo
+    display: block
+    width: 180px
+    flex-shrink: 0
+
+    img
+      display: block
+      width: 100%
+      height: auto
+
+  &__navigation
+    flex: 1
+
+  &__menu
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 40px
+    margin: 0
+    padding: 0
+    list-style: none
+
+    a
+      color: v.$white
+      font-size: 18px
+      line-height: 1.4
+      text-decoration: underline
+      text-underline-offset: 3px
+      transition: color 0.3s
+
+      &:hover
+        color: v.$green
+
+  &__socials
+    display: flex
+    align-items: center
+    gap: 20px
+
+  &__social-link
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 30px
+    height: 30px
+    border-radius: 50%
+
+    img
+      width: 30px
+      height: 30px
+      filter: invert(1)
+
+  &__content
+    display: grid
+    grid-template-columns: 1fr 1.6fr
+    align-items: stretch
+    gap: 120px
+    padding-bottom: 50px
+    border-bottom: 1px solid v.$white
+
+  &__contacts
+    color: v.$white
+    font-style: normal
+    font-size: 18px
+    line-height: 1.45
+
+    p
+      margin: 0 0 20px
+
+    a
+      color: v.$white
+      text-decoration: none
+
+      &:hover
+        color: v.$green
+
+  &__contact-title
+    display: inline-block
+    margin: 0 0 27px
+    padding: 3px 7px
+    color: v.$text
+    font-size: 20px
+    font-weight: 500
+    line-height: 1.3
+    background-color: v.$green
+    border-radius: 7px
+
+  &__subscribe
+    display: flex
+    align-items: center
+    gap: 20px
+    padding: 58px 40px
+    background-color: v.$footer-surface
+    border-radius: v.$radius-small
+
+  &__subscribe-input
+    min-width: 0
+    flex: 1
+    padding: 20px 35px
+    color: v.$white
+    font-size: 18px
+    background-color: transparent
+    border: 1px solid v.$white
+    border-radius: v.$radius-small
+    outline: none
+
+    &::placeholder
+      color: v.$white
+
+    &:focus
+      border-color: v.$green
+
+  .button--green
+    flex-shrink: 0
+    padding: 20px 35px
+    color: v.$text
+    font-size: 18px
+    background-color: v.$green
+    border: 1px solid v.$green
+    border-radius: v.$radius-small
+    cursor: pointer
+    transition: background-color 0.3s, color 0.3s
+
+    &:hover
+      color: v.$white
+      background-color: transparent
+
+  &__bottom
+    display: flex
+    align-items: center
+    gap: 40px
+    padding-top: 50px
+    font-size: 18px
+
+    p
+      margin: 0
+
+    a
+      color: v.$white
+      text-decoration: underline
+      text-underline-offset: 3px
+
+      &:hover
+        color: v.$green
+@media (max-width: 767px)
+  .footer
+    .container
+      padding: 0
+
+    &__container
+      padding: 50px 20px 30px
+      border-radius: 0
+
+    &__top
+      flex-direction: column
+      margin-bottom: 40px
+
+    &__logo
+      width: 145px
+
+    &__menu
+      flex-direction: column
+      gap: 15px
+
+      a
+        text-decoration: none
+
+    &__socials
+      gap: 20px
+
+    &__content
+      display: flex
+      flex-direction: column
+      gap: 35px
+      padding-bottom: 35px
+      text-align: center
+
+    &__contacts
+      font-size: 16px
+
+      p
+        margin-bottom: 15px
+
+    &__contact-title
+      margin-bottom: 25px
+
+    &__subscribe
+      flex-direction: column
+      padding: 30px
+
+    &__subscribe-input
+      width: 100%
+
+    .button--green
+      width: 100%
+
+    &__bottom
+      flex-direction: column
+      gap: 15px
+      padding-top: 35px
+      text-align: center
+      font-size: 16px
+
+
+
+@tailwind utilities
